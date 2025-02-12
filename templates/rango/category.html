@@ -1,11 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'rango/base.html' %}
 
-<head> 
-    <title>Rango</title>
-</head>
+{% block title_block %}
+    {% if category %}
+        {{ category.name }}
+    {% else %}
+        Unknown Category
+    {% endif %}
+{% endblock %}
 
-<body>
+{% block body_block %}
     <div>
         {% if category %}
             <h1>{{ category.name }}</h1>
@@ -32,5 +35,4 @@
     <div>
         <a href="{% url "rango:index" %}">Home</a>
     </div>
-</body>
-</html>
+{% endblock %}
